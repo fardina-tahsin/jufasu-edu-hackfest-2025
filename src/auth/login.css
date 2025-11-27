@@ -1,174 +1,244 @@
-/* Reset box-sizing */
-*, *::before, *::after {
-    box-sizing: border-box;
+/* Root Theme */
+:root {
+  --accent: #2c7a7b;
+  --accent-2: #f6ad55;
+  --bg: #0f1720;
+  --card: rgba(18, 25, 38, 0.85);
+  --muted: #b7c4d8;
+  --radius: 14px;
+  font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Noto Sans Bengali", sans-serif;
+  color-scheme: dark;
+}
+
+/* Background */
+html, body {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(180deg, #081222 0%, #0a1a27 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 }
 
 /* Container */
 .login-container {
-    max-width: 420px;
-    margin: 40px auto;
-    padding: 24px;
-    border: 1px solid #e6dcdc;
-    border-radius: 14px;
-    box-shadow: 0 2px 10px #00000014;
+  width: 350px;
+  padding: 28px 24px;
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: fadeUp 0.4s ease;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
 }
 
-/* Tabs */
+
+/* tabs */
 .tabs {
-    display: flex;
-    border-bottom: 1px solid #ccc;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
 }
 
 .tab {
-    flex: 1;
-    padding: 10px;
-    text-align: center;
-    font-weight: 500;
-    background: none;
-    border: none;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
+  width: 100%; 
+  background: linear-gradient(135deg, rgba(44,122,123,0.85), rgba(246,173,85,0.85));
+  color: #fff;
+  font-size: 18px; 
+  font-weight: 700;
+  text-align: center;
+  padding: 16px 0; 
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+  border: none; 
+  cursor: default; 
+  transition: all 0.3s ease;
 }
 
-.tab.active {
-    border-bottom: 2px solid #000;
-}
+/* Inputs */
 
-/* Spacing for sections */
-.form-section {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-/* Input fields */
 .input {
-    width: 100%;
-    padding: 10px 12px;
-    font-size: 15px;
-    border: 1px solid #aaa;
-    border-radius: 6px;
-    outline: none;
-    transition: border 0.2s;
-    box-sizing: border-box;
+  width: 90%; /* slightly smaller than tab */
+  padding: 12px 12px;
+  margin: 8px;
+  margin-left: 18px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 14px;
+  transition: 0.2s ease;
+  box-sizing: border-box;
 }
+
 
 .input:focus {
-    border-color: #333;
+  border-color: var(--accent);
+  background: rgba(255,255,255,0.12);
+  outline: none;
+  transform: scale(1.01);
+}
+
+.input::placeholder {
+  color: rgba(255,255,255,0.5);
 }
 
 /* Buttons */
+
 .btn {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    font-size: 15px;
-    border: none;
-    cursor: pointer;
+  width: 90%; 
+  padding: 12px;
+  border-radius: 12px;
+  margin-top: 8px;
+  margin-left: 18px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
-/* Variants */
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
 .btn-primary {
-    background: #000;
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #222;
+  background: rgba(51, 151, 153, 0.3);
+  color: white;
+  /* box-shadow: 0 3px 10px rgba(44,122,123,0.3); */
 }
 
 .btn-dark {
-    background: #444;
-    color: white;
-}
-
-.btn-dark:hover {
-    background: #333;
-}
-
-.btn-success {
-    background: #16a34a;
-    color: white;
-}
-
-.btn-success:hover {
-    background: #15803d;
+  background: rgba(255,255,255,0.1);
+  color: var(--muted);
 }
 
 .btn-google {
-    background: #dc2626;
-    color: white;
+  background: rgba(51, 151, 153, 0.3);
+  color: white;
 }
 
-.btn-google:hover {
-    background: #b91c1c;
+.btn-success {
+  background: #3dbb78;
 }
 
 .btn-blue {
-    background: #2563eb;
-    color: white;
-}
-
-.btn-blue:hover {
-    background: #1d4ed8;
+  background: #4ca3ff;
 }
 
 .btn-light {
-    background: #e5e7eb;
-    color: #333;
+  background: rgba(255,255,255,0.2);
 }
 
-.btn-light:hover {
-    background: #d1d5db;
-}
-
-/* Layout */
+/* Divider */
 .divider {
-    text-align: center;
-    color: #777;
-    font-size: 14px;
+  text-align: center;
+  margin: 16px 0;
+  color: var(--muted);
+  font-size: 13px;
+  position: relative;
 }
 
-/* Recovery box */
+.divider:before,
+.divider:after {
+  content: "";
+  width: 32%;
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  position: absolute;
+  top: 50%;
+}
+
+.divider:before {
+  left: 0;
+}
+
+.divider:after {
+  right: 0;
+}
+
+/* OTP + Recovery Box */
+.otp-box,
 .recovery-box {
-    margin-top: 16px;
-    padding: 16px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background: #f9f9f9;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  animation: fadeUp 0.3s ease;
+  margin-top: 12px;
+}
+
+#send-otp-btn {
+  background: rgba(51, 151, 153, 0.3);
+  color: white;
 }
 
 .title {
-    font-size: 14px;
-    font-weight: 600;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
-/* Row layout */
 .row {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
 }
 
-/* OTP box */
-.otp-box {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-/* Success / Error */
+/* Messages */
 .success-text {
-    color: #16a34a;
-    font-size: 14px;
+  color: #48bb78;
+  font-weight: 600;
+  margin-top: 8px;
+  font-size: 13px;
 }
 
 .error-text {
-    color: #dc2626;
-    font-size: 14px;
+  color: #f56565;
+  font-weight: 600;
+  margin-top: 8px;
+  font-size: 13px;
 }
 
-/* Hidden */
 .hidden {
-    display: none;
+  display: none;
+}
+
+/* Login with Google button */
+.btn-google {
+  background: rgba(51, 151, 153, 0.3);
+  color: white;
+  position: relative;      /* to place icon inside */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;                /* space between icon and text */
+  font-weight: 700;
+}
+
+/* Google icon inside button using SVG background */
+.btn-google::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url('../../public/images/icons8-google.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
