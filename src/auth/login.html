@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+
+<body>
+    <div class="login-container">
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button id="tab-login" class="tab active">
+                Login
+            </button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <div id="login-form" class="form-section">
+            <input id="login-email" type="email" placeholder="Email" class="input" />
+            <input id="login-password" type="password" placeholder="Password" class="input" />
+
+            <button id="login-btn" class="btn btn-primary">
+                Login
+            </button>
+
+            <p class="divider">Or</p>
+
+            <!-- Phone Login -->
+            <input id="phone-login" type="text" placeholder="+880123456789" class="input" />
+            <button id="send-otp-btn" class="btn btn-dark">
+                Send OTP
+            </button>
+
+            <!-- OTP Input -->
+            <div id="otp-section" class="hidden otp-box">
+                <input id="otp-input" type="text" placeholder="Enter OTP" class="input" />
+                <button id="verify-otp-btn" class="btn btn-success">
+                    Verify OTP
+                </button>
+            </div>
+
+            <p class="divider">Or Google Login</p>
+
+            <button id="google-login-btn" class="btn btn-google">
+                Login with Google
+            </button>
+
+            <p class="divider">Or</p>
+
+            <!-- Forgot Password -->
+            <button id="forgot-password-btn" class="btn btn-dark">
+                Forgot Password?
+            </button>
+
+            <!-- Forgot Password Section -->
+            <div id="forgot-password-section" class="hidden recovery-box">
+                <p class="title">Reset your password</p>
+
+                <input id="recovery-email" type="email" placeholder="Enter your email" class="input" />
+
+                <div class="row">
+                    <button id="send-recovery-btn" class="btn btn-blue">
+                        Send Recovery Email
+                    </button>
+
+                    <button id="cancel-recovery-btn" class="btn btn-light">
+                        Cancel
+                    </button>
+                </div>
+
+                <p id="success-message" class="hidden success-text"></p>
+                <p id="error-message" class="hidden error-text"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- reCAPTCHA container for phone auth -->
+    <div id="recaptcha-container"></div>
+    
+    <script type="module" src="./login.js"></script>
+</body>
+
+</html>
